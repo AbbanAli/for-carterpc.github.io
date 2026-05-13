@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abban | Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;800&display=swap');
+        body { background-color: #000; color: #fff; overflow-x: hidden; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .page { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
+        .text-reveal { opacity: 0; transform: translateY(40px); }
+
+        /* Clean button style — no hover effects */
+        .clean-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            transition: none;
+        }
+
+        /* Primary CTA — white, no hover */
+        .cta-btn {
+            background: #fff;
+            color: #000;
+            border: none;
+        }
+
+        /* Outline button — no hover */
+        .outline-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Product card — no hover */
+        .product-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Shipping note */
+        .shipping-note {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+    <!-- PAGE 1: THE INTRO -->
+    <section class="page">
+        <div>
+            <h1 class="text-reveal text-8xl md:text-[10rem] font-extrabold tracking-tighter">Hello Carter! 👋</h1>
+            <p class="text-reveal text-gray-500 mt-4 uppercase tracking-widest text-sm">A little something from Abban</p>
+        </div>
+    </section>
+
+    <!-- PAGE 2: THE PASSION -->
+    <section class="page">
+        <div class="max-w-4xl">
+            <h2 class="text-reveal text-5xl md:text-7xl font-medium tracking-tight leading-tight">
+                I'm a 15-year-old student who <span class="text-blue-500 font-extrabold">lives to code.</span>
+            </h2>
+            <p class="text-reveal text-gray-400 mt-8 text-xl">Building websites and insane UI/UX isn't just a hobby—it's my craft.</p>
+        </div>
+    </section>
+
+    <!-- PAGE 3: THE HARDWARE -->
+    <section class="page">
+        <div class="max-w-5xl">
+            <h2 class="text-reveal text-4xl md:text-6xl font-light">
+                I'm also deep into the custom ROM scene. Currently pushing my 
+                <span class="font-bold underline">2022 Redmi Note 11</span> to its limits.
+            </h2>
+            <p class="text-reveal text-gray-500 mt-10 text-xl italic">(Trying not to brick it every single weekend.)</p>
+        </div>
+    </section>
+
+    <!-- PAGE 4: THE PROBLEM -->
+    <section class="page">
+        <div class="max-w-4xl">
+            <h2 class="text-reveal text-5xl md:text-7xl font-bold text-red-600">But here's the reality.</h2>
+            <p class="text-reveal text-2xl md:text-4xl mt-12 leading-relaxed">
+                I can't risk my only phone. I'm currently too broke to afford a backup, and I don't want to stop leveling up my skills.
+            </p>
+        </div>
+    </section>
+
+    <!-- PAGE 5: THE ASK -->
+    <section class="page">
+        <div class="space-y-10 w-full">
+            <h2 class="text-reveal text-5xl font-bold">You wanted creative people?</h2>
+            <p class="text-reveal text-gray-400 text-xl max-w-2xl mx-auto italic">
+                This is my time to shine. I'd love one of these to keep the grind going (your choice):
+            </p>
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-stretch">
+                <a href="https://amzn.eu/d/02iR7dX3" target="_blank" class="text-reveal product-card p-10 w-full md:w-80 rounded-xl flex flex-col items-center justify-center gap-3">
+                    <div class="text-4xl mb-1">📱</div>
+                    <p class="text-2xl font-black">iPhone 17</p>
+                    <p class="text-gray-500 text-sm">The flagship choice</p>
+                </a>
+                <a href="https://amzn.eu/d/0daOeOPV" target="_blank" class="text-reveal product-card p-10 w-full md:w-80 rounded-xl flex flex-col items-center justify-center gap-3">
+                    <div class="text-4xl mb-1">💡</div>
+                    <p class="text-2xl font-black">Nothing Phone 4a</p>
+                    <p class="text-gray-500 text-sm">The creative choice</p>
+                </a>
+            </div>
+            <div class="text-reveal shipping-note p-6 rounded-xl max-w-xl mx-auto mt-4">
+                <p class="text-gray-300 text-lg">
+                    <i class="fas fa-truck-fast mr-2 text-gray-500"></i>
+                    If the shipping cost is cheap, I'll handle the cost.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="page">
+        <div class="w-full max-w-3xl space-y-10">
+            <h2 class="text-reveal text-6xl font-black tracking-tighter">PROJECTS & CONTACT</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a href="https://github.com/AbbanAli" target="_blank" class="text-reveal cta-btn p-6 rounded-xl font-bold flex items-center justify-center gap-3">
+                    <i class="fab fa-github text-xl"></i>
+                    <span>GITHUB REPOS</span>
+                </a>
+                <a href="mailto:muhammad.abban.ali.rashed@gmail.com" class="text-reveal clean-btn p-6 rounded-xl font-bold flex items-center justify-center gap-3">
+                    <i class="fas fa-envelope text-xl"></i>
+                    <span>MY EMAIL</span>
+                </a>
+                <a href="mailto:muhammad.ali.rashed@gmail.com" class="text-reveal outline-btn p-6 rounded-xl font-bold flex items-center justify-center gap-3 md:col-span-2">
+                    <i class="fas fa-user-tie text-xl"></i>
+                    <span>MY DAD'S CONTACT</span>
+                </a>
+            </div>
+
+            <p class="text-reveal text-gray-600 pt-10 text-sm uppercase tracking-widest italic">Built with GSAP & Tailwind for CarterPC</p>
+        </div>
+    </section>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.utils.toArray(".text-reveal").forEach((el) => {
+            gsap.to(el, {
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 90%",
+                    toggleActions: "play none none reverse",
+                },
+                opacity: 1,
+                y: 0,
+                duration: 1.5,
+                ease: "expo.out"
+            });
+        });
+    </script>
+</body>
+</html>

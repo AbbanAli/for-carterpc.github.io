@@ -3,79 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abban | Developer</title>
+    <meta name="description" content="Abban Ali - 15-year-old Full-Stack Developer. Building innovative web experiences and exploring custom ROM development.">
+    <meta name="author" content="Abban Ali">
+    <title>Abban Ali | Full-Stack Developer</title>
+    
+    <!-- Third-party libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;800&display=swap');
-        body { background-color: #000; color: #fff; overflow-x: hidden; font-family: 'Plus Jakarta Sans', sans-serif; }
-        .page { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
-        .text-reveal { opacity: 0; transform: translateY(40px); }
 
-        /* Clean button style — no hover effects */
-        .clean-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(10px);
-            transition: none;
+        /* ==================== Base Styles ==================== */
+        :root {
+            --color-bg: #000000;
+            --color-text: #ffffff;
+            --color-text-muted: #a0a0a0;
+            --color-accent-blue: #3b82f6;
+            --color-accent-red: #dc2626;
+            --border-light: 1px solid rgba(255, 255, 255, 0.12);
+            --border-subtle: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        /* Primary CTA — white, no hover */
-        .cta-btn {
-            background: #fff;
-            color: #000;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            overflow-x: hidden;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* ==================== Layout Components ==================== */
+        .page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* ==================== Animation States ==================== */
+        .text-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        /* ==================== Button Styles ==================== */
+        .btn-base {
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--color-text);
+            color: var(--color-bg);
             border: none;
         }
 
-        /* Outline button — no hover */
-        .outline-btn {
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: var(--border-light);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-tertiary {
             background: transparent;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        /* Product card — no hover */
-        .product-card {
+        .btn-tertiary:hover {
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
         }
 
-        /* Shipping note */
+        /* ==================== Card Styles ==================== */
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: var(--border-subtle);
+            border-radius: 0.75rem;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            cursor: pointer;
+        }
+
+        .product-icon {
+            font-size: 2.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: 900;
+            line-height: 1.4;
+        }
+
+        .product-subtitle {
+            color: var(--color-text-muted);
+            font-size: 0.875rem;
+        }
+
         .shipping-note {
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: var(--border-subtle);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            max-width: 28rem;
+            margin: 1rem auto 0;
         }
 
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
+        .shipping-note p {
+            color: #d1d5db;
+            font-size: 1.125rem;
+        }
+
+        /* ==================== Typography ==================== */
+        .text-highlight {
+            color: var(--color-accent-blue);
+            font-weight: 800;
+        }
+
+        .text-danger {
+            color: var(--color-accent-red);
+        }
+
+        .text-muted {
+            color: var(--color-text-muted);
+        }
+
+        .subtitle {
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.875rem;
+        }
+
+        /* ==================== Grid Layouts ==================== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid .btn-tertiary {
+                grid-column: 1 / -1;
+            }
+        }
+
+        /* ==================== Responsive Design ==================== */
+        @media (max-width: 768px) {
+            .page {
+                padding: 1.5rem;
+            }
+
+            .btn-base {
+                padding: 1rem;
+                font-size: 0.95rem;
+            }
+
+            .card {
+                padding: 1.75rem;
+            }
         }
     </style>
-<base target="_blank">
+    
+    <base target="_blank">
 </head>
 <body>
 
-    <!-- PAGE 1: THE INTRO -->
-    <section class="page">
+    <!-- ==================== PAGE 1: HERO INTRO ==================== -->
+    <section class="page" id="intro">
         <div>
             <h1 class="text-reveal text-8xl md:text-[10rem] font-extrabold tracking-tighter">Hello Carter! 👋</h1>
-            <p class="text-reveal text-gray-500 mt-4 uppercase tracking-widest text-sm">A little something from Abban</p>
+            <p class="text-reveal text-gray-500 mt-4 subtitle">A Little Something From Abban</p>
         </div>
     </section>
 
-    <!-- PAGE 2: THE PASSION -->
-    <section class="page">
+    <!-- ==================== PAGE 2: PASSION ==================== -->
+    <section class="page" id="passion">
         <div class="max-w-4xl">
             <h2 class="text-reveal text-5xl md:text-7xl font-medium tracking-tight leading-tight">
-                I'm a 15-year-old student who <span class="text-blue-500 font-extrabold">lives to code.</span>
+                I'm a 15-year-old student who <span class="text-highlight">lives to code.</span>
             </h2>
             <p class="text-reveal text-gray-400 mt-8 text-xl">Building websites and insane UI/UX isn't just a hobby—it's my craft.</p>
         </div>
     </section>
 
-    <!-- PAGE 3: THE HARDWARE -->
-    <section class="page">
+    <!-- ==================== PAGE 3: HARDWARE EXPERTISE ==================== -->
+    <section class="page" id="hardware">
         <div class="max-w-5xl">
             <h2 class="text-reveal text-4xl md:text-6xl font-light">
                 I'm also deep into the custom ROM scene. Currently pushing my 
@@ -85,93 +245,109 @@
         </div>
     </section>
 
-    <!-- PAGE 4: THE PROBLEM -->
-    <section class="page">
+    <!-- ==================== PAGE 4: THE CHALLENGE ==================== -->
+    <section class="page" id="challenge">
         <div class="max-w-4xl">
-            <h2 class="text-reveal text-5xl md:text-7xl font-bold text-red-600">But here's the reality.</h2>
+            <h2 class="text-reveal text-5xl md:text-7xl font-bold text-danger">But here's the reality.</h2>
             <p class="text-reveal text-2xl md:text-4xl mt-12 leading-relaxed">
                 I can't risk my only phone. I'm currently too broke to afford a backup, and I don't want to stop leveling up my skills.
             </p>
         </div>
     </section>
 
-    <!-- PAGE 5: THE ASK -->
-    <section class="page">
+    <!-- ==================== PAGE 5: THE OPPORTUNITY ==================== -->
+    <section class="page" id="opportunity">
         <div class="space-y-10 w-full">
             <h2 class="text-reveal text-5xl font-bold">You wanted creative people?</h2>
             <p class="text-reveal text-gray-400 text-xl max-w-2xl mx-auto italic">
                 This is my time to shine. I'd love one of these to keep the grind going (your choice):
             </p>
+            
             <div class="flex flex-col md:flex-row gap-6 justify-center items-stretch">
-                <a href="https://amzn.eu/d/02iR7dX3" target="_blank" class="text-reveal product-card p-10 w-full md:w-80 rounded-xl flex flex-col items-center justify-center gap-3">
-                    <div class="text-4xl mb-1">📱</div>
-                    <p class="text-2xl font-black">iPhone 17</p>
-                    <p class="text-gray-500 text-sm">The flagship choice</p>
+                <a href="https://amzn.eu/d/02iR7dX3" class="text-reveal card product-card w-full md:w-80">
+                    <div class="product-icon">📱</div>
+                    <p class="product-title">iPhone 17</p>
+                    <p class="product-subtitle">The Flagship Choice</p>
                 </a>
-                <a href="https://amzn.eu/d/0daOeOPV" target="_blank" class="text-reveal product-card p-10 w-full md:w-80 rounded-xl flex flex-col items-center justify-center gap-3">
-                    <div class="text-4xl mb-1">💡</div>
-                    <p class="text-2xl font-black">Nothing Phone 4a</p>
-                    <p class="text-gray-500 text-sm">The creative choice</p>
+                <a href="https://amzn.eu/d/0daOeOPV" class="text-reveal card product-card w-full md:w-80">
+                    <div class="product-icon">💡</div>
+                    <p class="product-title">Nothing Phone 4a</p>
+                    <p class="product-subtitle">The Creative Choice</p>
                 </a>
             </div>
-            <div class="text-reveal shipping-note p-6 rounded-xl max-w-xl mx-auto mt-4">
-                <p class="text-gray-300 text-lg">
-                    <i class="fas fa-truck-fast mr-2 text-gray-500"></i>
-                    If the shipping cost is cheap, I'll handle the cost.
+            
+            <div class="text-reveal shipping-note">
+                <p>
+                    <i class="fas fa-truck-fast mr-2"></i>
+                    If the shipping cost is reasonable, I'll handle it myself.
                 </p>
             </div>
         </div>
     </section>
 
-
-    <section class="page">
+    <!-- ==================== PAGE 6: CONTACT & PROJECTS ==================== -->
+    <section class="page" id="contact">
         <div class="w-full max-w-3xl space-y-10">
-            <h2 class="text-reveal text-6xl font-black tracking-tighter">PROJECTS & CONTACT</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <a href="https://github.com/AbbanAli" target="_blank" class="text-reveal cta-btn p-6 rounded-xl font-bold flex items-center justify-center gap-3">
+            <h2 class="text-reveal text-6xl font-black tracking-tighter">Connect & Collaborate</h2>
+            
+            <div class="contact-grid">
+                <a href="https://github.com/AbbanAli" class="text-reveal btn-base btn-primary">
                     <i class="fab fa-github text-xl"></i>
-                    <span>GITHUB REPOS</span>
+                    <span>GitHub Repos</span>
                 </a>
-                <a href="mailto:muhammad.abban.ali.rashed@gmail.com" class="text-reveal clean-btn p-6 rounded-xl font-bold flex items-center justify-center gap-3">
+                <a href="mailto:muhammad.abban.ali.rashed@gmail.com" class="text-reveal btn-base btn-secondary">
                     <i class="fas fa-envelope text-xl"></i>
-                    <span>MY EMAIL</span>
+                    <span>Email Me</span>
                 </a>
-                <a href="mailto:muhammad.ali.rashed@gmail.com" class="text-reveal outline-btn p-6 rounded-xl font-bold flex items-center justify-center gap-3 md:col-span-2">
+                <a href="https://twitter.com" class="text-reveal btn-base btn-secondary">
+                    <i class="fab fa-twitter text-xl"></i>
+                    <span>Twitter</span>
+                </a>
+                <a href="mailto:muhammad.ali.rashed@gmail.com" class="text-reveal btn-base btn-tertiary md:col-span-2">
                     <i class="fas fa-user-tie text-xl"></i>
-                    <span>MY DAD'S CONTACT</span>
+                    <span>Parent Contact</span>
                 </a>
             </div>
 
-            <p class="text-reveal text-gray-600 pt-10 text-sm uppercase tracking-widest italic">Built with GSAP & Tailwind for CarterPC</p>
+            <p class="text-reveal text-gray-600 pt-10 subtitle italic">Built with GSAP, Tailwind CSS & ❤️ for CarterPC</p>
         </div>
     </section>
 
-    <!-- PAGE 7: THE EFFORT -->
-    <section class="page">
+    <!-- ==================== PAGE 7: DEDICATION ==================== -->
+    <section class="page" id="dedication">
         <div class="max-w-3xl">
             <p class="text-reveal text-5xl md:text-6xl font-light leading-relaxed">
-                I spend <span class="text-red-600 font-bold">6 hours</span> coding it, I hope you see this and make my code worth-it 🙏
+                I spent <span class="text-danger font-bold">6 hours</span> crafting this experience. I hope you see this and make my code worth it. 🙏
             </p>
         </div>
     </section>
 
+    <!-- ==================== SCRIPTS ==================== -->
     <script>
-        gsap.registerPlugin(ScrollTrigger);
+        /**
+         * Initialize GSAP animations with ScrollTrigger
+         * Applies smooth scroll-reveal effect to all elements with .text-reveal class
+         */
+        function initializeAnimations() {
+            gsap.registerPlugin(ScrollTrigger);
 
-        gsap.utils.toArray(".text-reveal").forEach((el) => {
-            gsap.to(el, {
-                scrollTrigger: {
-                    trigger: el,
-                    start: "top 90%",
-                    toggleActions: "play none none reverse",
-                },
-                opacity: 1,
-                y: 0,
-                duration: 1.5,
-                ease: "expo.out"
+            gsap.utils.toArray('.text-reveal').forEach((element) => {
+                gsap.to(element, {
+                    scrollTrigger: {
+                        trigger: element,
+                        start: 'top 90%',
+                        toggleActions: 'play none none reverse',
+                    },
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.5,
+                    ease: 'expo.out',
+                });
             });
-        });
+        }
+
+        // Initialize animations on document load
+        document.addEventListener('DOMContentLoaded', initializeAnimations);
     </script>
 </body>
 </html>
